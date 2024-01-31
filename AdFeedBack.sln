@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdFeedBack.API", "AdFeedBack.API\AdFeedBack.API.csproj", "{EDCDC02A-7ABB-41D3-B690-8AEE29855079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdFeedBack.Presentation", "AdFeedBack.Presentation\AdFeedBack.Presentation.csproj", "{2E9C2AFE-78E7-495B-89C1-FA9F994CBFAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDCDC02A-7ABB-41D3-B690-8AEE29855079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCDC02A-7ABB-41D3-B690-8AEE29855079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCDC02A-7ABB-41D3-B690-8AEE29855079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCDC02A-7ABB-41D3-B690-8AEE29855079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9C2AFE-78E7-495B-89C1-FA9F994CBFAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9C2AFE-78E7-495B-89C1-FA9F994CBFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9C2AFE-78E7-495B-89C1-FA9F994CBFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9C2AFE-78E7-495B-89C1-FA9F994CBFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEAAFC34-2525-492E-88EE-3FAACF51883C}
+	EndGlobalSection
+EndGlobal
