@@ -63,6 +63,9 @@ nav a.router-link-exact-active {
 }
 
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #000;
   width: fixed 100%;
   color: white;
