@@ -9,7 +9,7 @@
       </router-link>     
       <div class="navigation">
         <router-link class="links" to="/">Home</router-link> 
-        <router-link class="links" to="/about">About</router-link> 
+        <router-link class="links" to="/about">Abouut</router-link> 
         <router-link class="links" to="/user">User Profile</router-link> 
       </div>
     </header>
