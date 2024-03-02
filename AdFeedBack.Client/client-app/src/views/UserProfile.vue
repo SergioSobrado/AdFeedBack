@@ -5,6 +5,7 @@
         <span style="font-size: 25px; font-weight: 600;">Sergio Sobrado</span>
     </div>
     <div class="pusblish-zone">
+        <span>{{ texto }}</span>
         <publish />
     </div>
   </div>
@@ -12,15 +13,31 @@
 
 <script lang="ts">
 import Publish from '@/components/Publish.vue'
+import Services from '@/services/GetString'
+import { defineComponent } from 'vue'
 
-export default {
+export default  defineComponent({
     components: { Publish },
     data() {
         return {
-            
+            texto: ""
+        }
+    },
+    mounted(){
+        this.GetStrings();
+    },
+    methods: {
+        GetStrings() {
+            Services.$GetString() 
+            .then((response) => {
+                this.texto = response.data;
+            })
+            .catch((error) => {
+                console.log(error);
+            })
         }
     }
-}
+});
 </script>
 
 <style scoped>
