@@ -11,15 +11,21 @@
                     <div>{{ publicacion.topic }}</div>
                 </div>
                 <p>{{ publicacion.message }}</p>
+                <p>{{ suma }}</p>        
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({ 
     data() {
         return {
+            titulo: "",
+            suma: 0,
+            mostrar: false,
             publicaciones: [
                 {
                     userName: "Sergio Sobrado",
@@ -35,8 +41,13 @@ export default {
                 } 
             ]
         }
+    },
+    methods: {
+        sumarNumero(num1: number , num2:number) {
+            this.suma = num1 + num2;
+        }
     }
-}
+});
 </script>
 
 <style scoped>
@@ -47,8 +58,10 @@ export default {
     padding: 15px;
     gap: 8px;
     background-color: #6b6b6b2b ;
-    border-radius: 10px;
-    border: 2px solid #6b6b6b2b;
+    border-radius: 10px 10px 0px 0px;
+    border-left: 2px solid #6b6b6b2b;
+    border-right: 2px solid #6b6b6b2b;
+    border-bottom: 2px solid #6b6b6b2b;
 }
 .header-publish span {
     font-weight: 700;
@@ -79,7 +92,13 @@ export default {
 }
 .content {
     width: 100%;
-    border: 2px solid red;
+    padding: 15px;
+    gap: 8px;
+    background-color: #ffffff2b ;
+    border-left: 2px solid #6b6b6b2b;
+    border-right: 2px solid #6b6b6b2b;
+    border-bottom: 2px solid #6b6b6b2b;
+    border-radius: 0px 0px 10px 10px;
 }
 .content p {
     display: flex;
