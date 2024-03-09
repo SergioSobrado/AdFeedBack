@@ -6,7 +6,8 @@
     </div>
     <div class="pusblish-zone">
         <span>{{ texto }}</span>
-        <publish />
+        <publish 
+        :publishData="publishData"/>
     </div>
   </div>
 </template>
@@ -14,13 +15,30 @@
 <script lang="ts">
 import Publish from '@/components/Publish.vue'
 import Services from '@/services/GetString'
+import { PostVM } from '@/viewmodels';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
     components: { Publish },
     data() {
         return {
-            texto: ""
+            texto: "",
+            publishData: [
+            {
+              UserId: 1,
+              UserName: "Sergio Sobrado",
+              PlattaformId: 1,
+              PostText: "Rara experiencia con anuncios de Mercadoi Libre",
+              TopicId: 1
+            },
+            {
+              UserId: 1,
+              UserName: "Sergio Sobrado",
+              PlattaformId: 1,
+              PostText: "Rara experiencia con anuncios de Mercadoi Libre",
+              TopicId: 1
+            },
+        ] as PostVM[]
         }
     },
     mounted(){
