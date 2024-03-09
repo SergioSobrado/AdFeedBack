@@ -16,7 +16,7 @@ import Publish from '@/components/Publish.vue'
 import Services from '@/services/GetString'
 import { defineComponent } from 'vue'
 
-export default  defineComponent({
+export default defineComponent({
     components: { Publish },
     data() {
         return {
@@ -55,4 +55,7 @@ export default  defineComponent({
     border: 1xp solid rgba(180, 171, 171, 0.776);
 }
 
+.pusblish-zone {
+    width: 100%;
+}
 </style>
