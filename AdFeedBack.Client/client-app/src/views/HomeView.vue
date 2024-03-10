@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    
     <Publish 
     :publishData="publishData"/>
   </div>
@@ -37,3 +38,9 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped>
+.home {
+  height: calc(100vh - 161px);
+}
+</style>

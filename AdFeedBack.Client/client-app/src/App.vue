@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+
 export default ({
   data() {
     return {
@@ -71,7 +72,6 @@ nav a.router-link-exact-active {
   width: fixed 100%;
   color: white;
   height: 80px;
-
 }
 
 .header {
@@ -84,8 +84,10 @@ nav a.router-link-exact-active {
   color: white;
   height: 51px;
 }
+
 .body{ 
-  height: calc(100vh - 161px);
+  height: calc(100vh - 181px);
+  margin-top: 20px;
 }
 
 * {
@@ -99,8 +101,7 @@ nav a.router-link-exact-active {
 }
 .navigation {
   display: flex;
-  gap: 5px;
-
+  gap: 5px;   
 }
 
 .links {
