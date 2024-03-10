@@ -1,8 +1,41 @@
 <template>
   <div class="home">
-    
+    <div class="nav-bar">
+      <h3>Publicaciones</h3>
+      <b-button variant="primary" @click="OpenModal">Crear nueva publicación</b-button>
+    </div>
     <Publish 
     :publishData="publishData"/>
+    <b-modal 
+    v-model="showModal"
+    centered
+    hide-header
+    hide-footer
+    size="xl">
+    <div>
+      <div>
+        <h2>Crear nueva publicación</h2>
+      </div>
+      <div>
+        <div>
+          <h5>Nombre de usuario</h5>
+          <b-input 
+          v-model="loggedUser.Name"
+          disabled></b-input>
+        </div>
+        <div>
+          <h5>Mensaje</h5>
+          <b-input 
+          placeholder="Intruzca su historia con los anuncios"
+          ></b-input>
+        </div>
+        <div>
+          <h5>Categoria</h5>
+          <b-form-select v-model="selected" :options="options" ></b-form-select>
+        </div>  
+      </div>
+    </div>  
+  </b-modal>
   </div>
 </template>
 
@@ -10,6 +43,8 @@
 import Vue from 'vue';
 import Publish from '@/components/Publish.vue';
 import { PostVM } from '@/viewmodels';
+import store from '@/store';
+
 
 export default Vue.extend({
   name: 'HomeView',
@@ -34,6 +69,21 @@ export default Vue.extend({
           TopicId: 1
         },
       ] as PostVM[],
+      showModal: false,
+      loggedUser: store.state.user,
+      selected: null,
+        options: [
+          { value: null, text: 'Please select an option' },
+          { value: 'a', text: 'This is First option' },
+          { value: 'b', text: 'Selected Option' },
+          { value: { C: '3PO' }, text: 'This is an option with object value' },
+          { value: 'd', text: 'This one is disabled', disabled: true }
+        ],
+    }
+  },
+  methods: {
+    OpenModal() {
+      this.showModal = true;
     }
   }
 });
@@ -42,5 +92,15 @@ export default Vue.extend({
 <style scoped>
 .home {
   height: calc(100vh - 161px);
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #000;
+  align-items: center ;
+  background-color: #E5E5E5;
+  margin-bottom: 20px;
 }
 </style>
