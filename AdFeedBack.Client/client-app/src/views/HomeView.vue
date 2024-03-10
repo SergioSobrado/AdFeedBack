@@ -11,28 +11,36 @@
     centered
     hide-header
     hide-footer
-    size="xl">
+    size="md">
     <div>
-      <div>
+      <div> 
         <h2>Crear nueva publicación</h2>
       </div>
-      <div>
+      <div class="forms-area">
         <div>
-          <h5>Nombre de usuario</h5>
+          <h5>Nombre de usuario:</h5>
           <b-input 
           v-model="loggedUser.Name"
           disabled></b-input>
         </div>
         <div>
-          <h5>Mensaje</h5>
-          <b-input 
+          <h5>Mensaje:</h5>
+          <b-form-textarea 
           placeholder="Intruzca su historia con los anuncios"
-          ></b-input>
+          ></b-form-textarea>
         </div>
         <div>
-          <h5>Categoria</h5>
-          <b-form-select v-model="selected" :options="options" ></b-form-select>
+          <h5>Plataforma donde vio la publicidad:</h5>
+          <b-form-select v-model="selectedCategory" :options="categoriesName" ></b-form-select>
         </div>  
+        <div>
+          <h5>Tema sobre el que vio la publicida:</h5>
+          <b-form-select v-model="selectedTopic" :options="topicNames" ></b-form-select>
+        </div>  
+        <div class="modal-buttons">
+          <b-button variant="success">Crear</b-button>
+          <b-button @click="OpenModal" variant="outline-danger">Cerrar</b-button>
+        </div>
       </div>
     </div>  
   </b-modal>
@@ -71,20 +79,27 @@ export default Vue.extend({
       ] as PostVM[],
       showModal: false,
       loggedUser: store.state.user,
-      selected: null,
-        options: [
-          { value: null, text: 'Please select an option' },
-          { value: 'a', text: 'This is First option' },
-          { value: 'b', text: 'Selected Option' },
-          { value: { C: '3PO' }, text: 'This is an option with object value' },
-          { value: 'd', text: 'This one is disabled', disabled: true }
-        ],
+      selectedCategory: null,
+      selectedTopic: null,
+      categoryOptions: store.state.socialMediaCategory,
+      adsOptions: store.state.topicAdCategory,
+      categoriesName: [{}],
+      topicNames: [{}]
     }
   },
   methods: {
     OpenModal() {
-      this.showModal = true;
+      this.showModal =! this.showModal;    
     }
+  },
+  mounted() {
+    this.categoryOptions.forEach((categorie) => 
+      {
+        this.categoriesName.push(categorie.Name)
+      })
+      this.adsOptions.forEach((topics) => {
+        this.topicNames.push(topics.Name)
+      })
   }
 });
 </script>
@@ -102,5 +117,17 @@ export default Vue.extend({
   align-items: center ;
   background-color: #E5E5E5;
   margin-bottom: 20px;
+}
+.forms-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+  gap: 10px;
 }
 </style>

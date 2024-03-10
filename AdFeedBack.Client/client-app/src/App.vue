@@ -86,11 +86,11 @@ nav a.router-link-exact-active {
   background-color: #000;
   width: fixed 100%;
   color: white;
-  height: 51px;
+  height: 81px;
 }
 
 .body{ 
-  height: calc(100vh - 181px);
+  height: calc(100vh - 161px);
 }
 
 * {
