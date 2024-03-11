@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AdFeedBack.dto.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace AdFeedBack.data
 {
@@ -18,6 +19,9 @@ namespace AdFeedBack.data
         public DbSet<Perfil> Perfiles { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Platform> Platforms { get; set; }
+        public DbSet<Topic> Topics { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //   {

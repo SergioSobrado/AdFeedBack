@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace AdFeedBack.dto.Models
 {
-    internal class Topic
+    public class Topic
     {
+        public int TopicId { get; set; }
         public string Name { get; set; }
         
         public string? Description { get; set; }

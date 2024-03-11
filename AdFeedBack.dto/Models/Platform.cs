@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace AdFeedBack.dto.Models
 {
-    internal class Platform
+    public class Platform
     {
+        public int PlatformId { get; set; }
+        
         public string Name { get; set; }
         
         public string? Description { get; set; }
