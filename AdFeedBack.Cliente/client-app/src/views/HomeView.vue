@@ -5,7 +5,7 @@
       <b-button variant="primary" @click="OpenModal">Crear nueva publicación</b-button>
     </div>
     <Publish 
-    :publishData="publishData"/>
+    :publishData="publish"/>
     <b-modal 
     v-model="showModal"
     centered
@@ -26,19 +26,20 @@
         <div>
           <h5>Mensaje:</h5>
           <b-form-textarea 
+          v-model="postMessage"
           placeholder="Intruzca su historia con los anuncios"
           ></b-form-textarea>
         </div>
         <div>
           <h5>Plataforma donde vio la publicidad:</h5>
-          <b-form-select v-model="selectedCategory" :options="categoriesName" ></b-form-select>
+          <b-form-select v-model="selectedCategory" :options="categoryOptions" ></b-form-select>
         </div>  
         <div>
           <h5>Tema sobre el que vio la publicida:</h5>
-          <b-form-select v-model="selectedTopic" :options="topicNames" ></b-form-select>
+          <b-form-select v-model="selectedTopic" :options="adsOptions" placeholder="Seleccione una tema" ></b-form-select>
         </div>  
         <div class="modal-buttons">
-          <b-button variant="success">Crear</b-button>
+          <b-button @click="CreatePost" variant="success">Crear</b-button>
           <b-button @click="OpenModal" variant="outline-danger">Cerrar</b-button>
         </div>
       </div>
@@ -50,7 +51,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Publish from '@/components/Publish.vue';
-import { PostVM } from '@/viewmodels';
+import { PlataformVM, PostVM, TopicVM } from '@/viewmodels';
 import store from '@/store';
 
 
@@ -61,45 +62,77 @@ export default Vue.extend({
   },
   data() {
     return {
-      publishData: [
+      publish: [
         {
           UserId: 2,
           UserName: "Sergio Sobrado",
-          PlattaformId: 1,
-          PostText: "Rara experiencia con anuncios de Mercadoi Libre",
-          TopicId: 1
+          Plataform: {value: 2, text: "Instagram"} as PlataformVM,
+          PostText: "Rara expemriencia con anuncios de Mercadoi Libre",
+          Topic: {value: 2, text: "Mascotas"} as TopicVM
         },
         {
           UserId: 1,
           UserName: "Alan Jimenez",
-          PlattaformId: 1,
+          Plataform: {value: 2, text: "Instagram"} as PlataformVM,
           PostText: "God con las recomendaciones",
-          TopicId: 1
+          Topic: {value: 2, text: "Mascotas"} as TopicVM
         },
       ] as PostVM[],
       showModal: false,
       loggedUser: store.state.user,
-      selectedCategory: null,
-      selectedTopic: null,
+      selectedCategory: 1,
+      selectedTopic: 1,
       categoryOptions: store.state.socialMediaCategory,
       adsOptions: store.state.topicAdCategory,
-      categoriesName: [{}],
-      topicNames: [{}]
+      postMessage: "",
+      postCategory: "",
+      postTopic: "",
+      newPost: {} as PostVM,
+      toastVariant: "",
+      defaultToastPosition: 'b-toaster-bottom-right'
     }
   },
   methods: {
     OpenModal() {
       this.showModal =! this.showModal;    
+    },
+    CreatePost() {
+      let validPost = this.ValidatePost();
+      if(validPost) {
+        this.newPost = {
+        UserId: this.loggedUser.Id,
+        UserName: this.loggedUser.Name,
+        Plataform: {value: this.selectedCategory, text: this.categoryOptions[this.selectedCategory-1].text},
+        Topic: {value: this.selectedTopic, text: this.adsOptions[this.selectedTopic-1].text},
+        PostText: this.postMessage
+      };
+      this.showModal =! this.showModal;  
+      this.publish.push(this.newPost);
+      }
+    },
+    ValidatePost() {
+      if(this.selectedCategory!=null && this.selectedTopic!=null && this.postMessage!=""){
+        this.toastVariant = 'success';
+        this.$bvToast.toast('Se creó correctamente el post', {
+          title: `Variant ${this.toastVariant || 'default'}`,
+          toaster: this.defaultToastPosition,
+          variant: this.toastVariant,
+          solid: true
+        })
+        return true;
+      }
+      else {
+        this.toastVariant = 'danger';
+        this.$bvToast.toast('Verifique los campos', {
+          title: `Variant ${this.toastVariant || 'default'}`,
+          toaster: this.defaultToastPosition,
+          variant: this.toastVariant,
+          solid: true
+        })
+      return false;
+      }
+     
     }
-  },
-  mounted() {
-    this.categoryOptions.forEach((categorie) => 
-      {
-        this.categoriesName.push(categorie.Name)
-      })
-      this.adsOptions.forEach((topics) => {
-        this.topicNames.push(topics.Name)
-      })
   }
 });
 </script>

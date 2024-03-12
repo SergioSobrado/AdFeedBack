@@ -7,8 +7,8 @@
             </div>
             <div class="content">
                 <div class="categories">
-                    <div>{{ publicacion.PlattaformId }}</div>
-                    <div>{{ publicacion.TopicId }}</div>
+                    <div>{{ publicacion.Plataform.text }}</div>
+                    <div>{{ publicacion.Topic.text }}</div>
                 </div>
                 <p>{{ publicacion.PostText }}</p>
             </div>
@@ -61,7 +61,7 @@ export default defineComponent({
     margin-right: 15%;
 }
 .categories {
-    width: 20%;
+    width: fit-content;
     display: flex;
     justify-content: start;
     gap: 10px;

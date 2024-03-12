@@ -6,20 +6,18 @@ export interface UserVM{
 
 export interface PostVM {
     UserId: number,
-    PlattaformId: number,
-    TopicId: number,
+    Plataform: PlataformVM,
+    Topic: TopicVM,
     UserName: string,
     PostText: string
 }
 
 export interface TopicVM {
-    Id: number,
-    Name: string,
-    Description: string
+    value: number,
+    text: string,
 }
 
 export interface PlataformVM {
-    Id: number,
-    Name: string,
-    Description: string
+    value: number,
+    text: string,
 }

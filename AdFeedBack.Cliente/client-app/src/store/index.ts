@@ -13,71 +13,62 @@ export default new Vuex.Store({
     } as UserVM,
     socialMediaCategory: [
       {
-        Id: 1,
-        Name: "Instagram",
-        Description: "Social media"
+        value: 1,
+        text: "No aplica",
       },
       {
-        Id: 2,
-        Name: "Facebook",
-        Description: "Social media"
+        value: 2,
+        text: "Instagram",
       },
       {
-        Id: 3,
-        Name: "Youtube",
-        Description: "Social media"
+        value: 3,
+        text: "Facebook",
       },
       {
-        Id: 4,
-        Name: "Tiktok",
-        Description: "Social media"
+        value: 4,
+        text: "Youtube",
+      },
+      {
+        value: 5,
+        text: "Tiktok",
       }
     ] as PlataformVM[],
     topicAdCategory: [
       {
-        Id: 1, 
-        Name: "Mascotas",
-        Description: "Si"
+        value: 1,
+        text: "No aplica",
       },
       {
-        Id: 2, 
-        Name: "Ejecicio o Deportes",
-        Description: "Si"
+        value: 2, 
+        text: "Mascotas",
       },
       {
-        Id: 3, 
-        Name: "Videojuegos",
-        Description: "Si"
+        value: 3, 
+        text: "Ejecicio o Deportes",
       },
       {
-        Id: 4, 
-        Name: "Cine",
-        Description: "Si"
+        value: 4, 
+        text: "Videojuegos",
       },
       {
-        Id: 5, 
-        Name: "Economía",
-        Description: "Si"
+        value: 5, 
+        text: "Cine",
       },
       {
-        Id: 6, 
-        Name: "Plataformas de aprendizaje",
-        Description: "Si"
+        value: 6, 
+        text: "Economía",
       },
       {
-        Id: 7, 
-        Name: "Alimentos",
-        Description: "Si"
+        value: 7, 
+        text: "Plataformas de aprendizaje",
       },
       {
-        Id: 8, 
-        Name: "Tecnología",
-        Description: "Si"
+        value: 8, 
+        text: "Alimentos",
       },
       {
-        Id: 9, 
-        Name: "Sin publicidad",
-        Description: "Si"
+        value: 9, 
+        text: "Tecnología",
       }
     ] as TopicVM[]
   }

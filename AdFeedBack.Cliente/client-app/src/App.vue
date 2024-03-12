@@ -6,13 +6,13 @@
           <svg width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#FFC700" d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z"/></svg>      
           <span class="title">AdFeedBack</span>
         </div>
-      </router-link>     
+      </router-link>
       <div class="navigation">
         <router-link class="links" to="/about">Statistics</router-link> 
         <router-link class="links" to="/user">
             <svg width="35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#FFFFFF" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
             <span class="title">{{ loggedUser.Name }}</span>
-          </router-link> 
+          </router-link>
       </div>
     </header>
     <div class="body">
@@ -88,9 +88,9 @@ nav a.router-link-exact-active {
   color: white;
   height: 81px;
 }
-
 .body{ 
   height: calc(100vh - 161px);
+  overflow-y: auto;
 }
 
 * {

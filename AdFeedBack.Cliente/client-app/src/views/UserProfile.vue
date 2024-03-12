@@ -16,7 +16,7 @@
 import Publish from '@/components/Publish.vue'
 import Services from '@/services/GetString'
 import store from '@/store';
-import { PostVM } from '@/viewmodels';
+import { PlataformVM, PostVM, TopicVM } from '@/viewmodels';
 import { defineComponent } from 'vue'
 
 
@@ -29,16 +29,16 @@ export default defineComponent({
             {
               UserId: 1,
               UserName: store.state.user.Name,
-              PlattaformId: 1,
-              PostText: "Rara experiencia con anuncios de Mercadoi Libre",
-              TopicId: 1
+              Plataform: {value: 2, text: "Instagram"} as PlataformVM,
+              PostText: "Rara expemriencia con anuncios de Mercadoi Libre",
+              Topic: {value: 2, text: "Mascotas"} as TopicVM
             },
             {
               UserId: 1,
               UserName: store.state.user.Name,
-              PlattaformId: 1,
+              Plataform: {value: 2, text: "Instagram"} as PlataformVM,
               PostText: "Rara experiencia con anuncios de Mercadoi Libre",
-              TopicId: 1
+              Topic: {value: 2, text: "Mascotas"} as TopicVM
             },
         ] as PostVM[],
             loggedUser: store.state.user,
