@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdFeedBack.dto.Models
 {
-    internal class Post
+    public class Post
     {
         public int PostId { get; set; }
         public string Title { get; set; }
